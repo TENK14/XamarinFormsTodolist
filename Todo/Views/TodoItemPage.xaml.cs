@@ -1,5 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace Todo
 {
@@ -8,6 +11,10 @@ namespace Todo
 		public TodoItemPage()
 		{
 			InitializeComponent();
+
+			AppCenter.Start("android=ec5f7a49-ee9c-4533-b91a-8f3b4bdb4391;" + "uwp={Your UWP App secret here};" +
+			                "ios={Your iOS App secret here}",
+				typeof(Analytics), typeof(Crashes));
 		}
 
 		async void OnSaveClicked(object sender, EventArgs e)
